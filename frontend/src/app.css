@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Orbitron", sans-serif;
+  --font-sans: "Inter", sans-serif;
+  --font-accent: "Lexend", sans-serif;
+}
+
+html,
+body {
+  @apply min-h-full bg-[#f4f4f8] text-slate-900 antialiased;
+}
+
+::selection {
+  @apply bg-slate-900 text-white;
+}
