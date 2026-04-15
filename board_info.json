@@ -1,0 +1,136 @@
+[
+  {
+    "firstName": "Ye Htut",
+    "lastName": "Maung",
+    "role": "President",
+    "year": "Senior",
+    "degree": "Bachelors",
+    "linkedin": "https://www.linkedin.com/in/ye-htut-maung",
+    "website": "",
+    "summary": "Ye Htut Maung is a senior student majoring in Computer Science and Math concentrated in Data Science and Statistics. He is also a CS and Math tutor at Learning Commons. In his free time, he likes to watch anime or play games with his friends.",
+    "experience": "Incoming SWE Intern, Bloomberg",
+    "photo": "Ye Htut.jpg"
+  },
+  {
+    "firstName": "Nisan",
+    "lastName": "Shaulov",
+    "role": "Workshop Developer / Tutor",
+    "year": "Sophomore",
+    "degree": "Bachelors",
+    "linkedin": "https://www.linkedin.com/in/nisan-shaulov-2ba77032a",
+    "website": "https://nisans.dev",
+    "summary": "I really like reverse engineering and figuring out how things work!",
+    "experience": "N/A",
+    "photo": "Nisan.jpg"
+  }
+  ,
+  {
+    "firstName": "Luis",
+    "lastName": "Rodriguez",
+    "role": "Workshop Developer",
+    "year": "Senior",
+    "degree": "Bachelors",
+    "linkedin": "https://www.linkedin.com/in/luro-dev",
+    "website": "",
+    "summary": "I'm an aspiring software engineer with a passion for backend development with languages like JS & Go. I love solving problems and working with others. When I'm not coding I'm either at the gym, riding my motorcycle, or lost in a good book.",
+    "experience": "N/A",
+    "photo": ""
+  },
+  {
+    "firstName": "Andrew",
+    "lastName": "Jiang",
+    "role": "Web Developer & Event Manager",
+    "year": "Senior",
+    "degree": "Bachelors",
+    "linkedin": "https://www.linkedin.com/in/ajiangnyc/",
+    "website": "",
+    "summary": "I'm a Senior majoring in Computer Science and I love creating small projects with Python and JavaScript. I'm also responsible for the CFA logo and branding redesign! On my days off, I really enjoy creating art, doing blind box openings, and spending time in nature.",
+    "experience": "N/A",
+    "photo": "Andrew Jiang.jpg"
+  },
+  {
+    "firstName": "Jason",
+    "lastName": "Zheng",
+    "role": "Marketing",
+    "year": "Senior",
+    "degree": "Bachelors",
+    "linkedin": "https://www.linkedin.com/in/jasonzheng12",
+    "website": "",
+    "summary": "Hey I'm Jason 1v1 me on summoners rift",
+    "experience": "N/A",
+    "photo": "Jason.png"
+  },
+  {
+    "firstName": "Maruf",
+    "lastName": "Azad",
+    "role": "Event Manager",
+    "year": "Freshman",
+    "degree": "Bachelors",
+    "linkedin": "https://www.linkedin.com/in/maruf-azad-05851137b/",
+    "website": "",
+    "summary": "Hello everyone my name is Maruf. I am currently the Event Manager for Code for All, and I love all types of food, especially dessert.",
+    "experience": "Unadat",
+    "photo": "Maruf.png"
+  },
+  {
+    "firstName": "Nahin",
+    "lastName": "Khan",
+    "role": "Marketing Team",
+    "year": "Freshman",
+    "degree": "Bachelors",
+    "linkedin": "https://www.linkedin.com/in/nahinmkhan/",
+    "website": "",
+    "summary": "Hey, everyone! My name is Nahin and I'm a freshman majoring in Applied Math and Computer Science. In my free time I like playing soccer.",
+    "experience": "N/A",
+    "photo": "Nahin.png"
+  },
+  {
+    "firstName": "Huzayfah",
+    "lastName": "Hayyan",
+    "role": "Treasurer",
+    "year": "Senior",
+    "degree": "Bachelors",
+    "linkedin": "https://www.linkedin.com/in/hayyanawan",
+    "website": "",
+    "summary": "Finishing up my Bachelor's in Computer Science. Former President of the MSA",
+    "experience": "Previously worked at various NYC Public Schools in an IT role and completed various fellowships such as CUNY Tech Prep and BASTA.",
+    "photo": "Huzayfah.jpg"
+  },
+  {
+    "firstName": "Kyoshi",
+    "lastName": "Noda",
+    "role": "Mock Interviewer",
+    "year": "Masters",
+    "degree": "Masters",
+    "linkedin": "https://www.linkedin.com/in/kyoshi-noda/",
+    "website": "https://kyoshi-noda.vercel.app/",
+    "summary": "Hey I'm one of the Mock Interviewers! On my free time I love to play soccer",
+    "experience": "SWE Intern, Capital One",
+    "photo": "kyoshi.png"
+  },
+  {
+    "firstName": "Roshan",
+    "lastName": "Jahan",
+    "role": "Secretary",
+    "year": "Junior",
+    "degree": "Bachelors",
+    "linkedin": "https://www.linkedin.com/in/roshan-jahan",
+    "website": "",
+    "summary": "",
+    "experience": "CVS Health, SWE",
+    "photo": "Roshan.jpg"
+  },
+  {
+    "firstName" : "Shabir",
+    "lastName" : "Zahir",
+    "role" : "Mock Interviewer & Workshop Developer",
+    "year" : "Senior",
+    "degree" : "Bachelors",
+    "linkedin" : "https://www.linkedin.com/in/shabir-zahir/",
+    "website" : "", 
+    "summary" : "I love my cats Mango Mina",
+    "experience" : "prev @ CUIMC",
+    "photo" : "Shabir.jpg"
+
+  }
+]
