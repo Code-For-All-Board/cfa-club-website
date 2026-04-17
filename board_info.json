@@ -17,7 +17,7 @@
     "role": "Vice President",
     "year": "Senior",
     "degree": "Bachelors",
-    "linkedin": "https://www.linkedin.com/in/ye-htut-maung",
+    "linkedin": "https://www.linkedin.com/in/danieljac/",
     "website": "",
     "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "experience": "Swe Intern, Datadog",
@@ -102,7 +102,7 @@
     "lastName": "Zian Hassan",
     "role": "Mock Interviewer",
     "year": "Alumni",
-    "degree": "",
+    "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/mohammed-zian-hassan/",
     "website": "",
     "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -155,7 +155,7 @@
     "linkedin": "https://www.linkedin.com/in/maisa-maliha-5108721a6/",
     "website": "",
     "summary": "",
-    "experience": "Jp Morgan Chase",
+    "experience": "SWE Intern, JP MorganChase",
     "photo": "default.jpg"
   },
   {
@@ -169,6 +169,19 @@
     "summary": "Hey I'm Jason 1v1 me on summoners rift",
     "experience": "",
     "photo": "Jason.png"
+  },
+
+  {
+    "firstName": "Jaden",
+    "lastName": "Sjauw",
+    "role": "Marketing",
+    "year": "Senior",
+    "degree": "Bachelors",
+    "linkedin": "https://www.linkedin.com/in/jaden-sjauw-a28551299/",
+    "website": "",
+    "summary": "",
+    "experience": "",
+    "photo": "default.jpg"
   },
 
   {
@@ -196,7 +209,6 @@
     "experience": "Unadat",
     "photo": "Maruf.png"
   },
-
   {
     "firstName": "Sreileak",
     "lastName": "Theap",
@@ -209,7 +221,6 @@
     "experience": "",
     "photo": "default.jpg"
   },
-
   {
     "firstName": "Yonghao",
     "lastName": "Lin",
@@ -219,7 +230,56 @@
     "linkedin": "https://www.linkedin.com/in/yonghao-lin/",
     "website": "",
     "summary": "",
-    "experience": "BlackRock",
+    "experience": "SWE, BlackRock",
+    "photo": "default.jpg"
+  },
+  {
+    "firstName": "Tasnim",
+    "lastName": "Hossain",
+    "role": "Newsletter",
+    "year": "Senior",
+    "degree": "Bachelors",
+    "linkedin": "https://www.linkedin.com/in/tasnim-hossain-ny/",
+    "website": "",
+    "summary": "",
+    "experience": "SWE Intern, NYC Department Enviromental Protection",
+    "photo": "default.jpg"
+  },
+  {
+    "firstName": "Angel (Kerlyn)",
+    "lastName": "Difo",
+    "role": "Newsletter",
+    "year": "Senior",
+    "degree": "Bachelors",
+    "linkedin": "https://www.linkedin.com/in/kerlyn-angel-difo/",
+    "website": "https://www.kerlyndifo.com/",
+    "summary": "",
+    "experience": "SWE Intern, Google",
+    "photo": "default.jpg"
+  },
+  {
+    "firstName": "Eric",
+    "lastName": "Salazar",
+    "role": "Marketing (TODO)",
+    "year": "Senior",
+    "degree": "Bachelors",
+    "linkedin": "https://www.linkedin.com/in/eric-salazar04/",
+    "website": "",
+    "summary": "",
+    "experience": "SWE Intern, Datadog",
+    "photo": "default.jpg",
+    "past_board": "true"
+  },
+  {
+    "firstName": "Poyao",
+    "lastName": "Tsui",
+    "role": "Marketing",
+    "year": "Senior",
+    "degree": "Bachelors",
+    "linkedin": "https://www.linkedin.com/in/poyaotsui/",
+    "website": "",
+    "summary": "",
+    "experience": "",
     "photo": "default.jpg"
   }
 ]
