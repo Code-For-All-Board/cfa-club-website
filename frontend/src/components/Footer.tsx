@@ -1,6 +1,6 @@
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 
-import cfaPrimaryLogo from "../assets/CFA Primary Logo.png";
+import cfaPrimaryLogo from "../assets/cfaLogos/CFA Primary Logo.png";
 
 const linkedinUrl = "https://www.linkedin.com/company/code-for-all-qc/";
 const instagramUrl = "https://www.instagram.com/codeforall_qc/";

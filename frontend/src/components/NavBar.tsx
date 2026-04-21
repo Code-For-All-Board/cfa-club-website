@@ -1,6 +1,6 @@
 import { NavLink } from "react-router";
 
-import cfaPrimaryLogo from "../assets/CFA Primary Logo.png";
+import cfaPrimaryLogo from "../assets/cfaLogos/CFA Primary Logo.png";
 
 type NavItem = {
   to: string;
