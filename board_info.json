@@ -2,60 +2,46 @@
   {
     "firstName": "Ye Htut",
     "lastName": "Maung",
-    "filterTags": [
-      "executive"
-    ],
+    "filterTags": ["executive"],
     "year": "Senior",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/ye-htut-maung",
     "website": "",
     "summary": "Ye Htut Maung is a senior student majoring in Computer Science and Math concentrated in Data Science and Statistics. He is also a CS and Math tutor at Learning Commons. In his free time, he likes to watch anime or play games with his friends.",
-    "experience": "Incoming SWE Intern, Bloomberg",
+    "experience": "SWE Intern, Bloomberg",
     "photo": "Ye Htut.jpg",
-    "roles": [
-      "President"
-    ]
+    "roles": ["President"]
   },
   {
     "firstName": "Daniel",
     "lastName": "Jackson",
-    "filterTags": [
-      "executive"
-    ],
+    "filterTags": ["executive"],
     "year": "Senior",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/danieljac/",
     "website": "",
-    "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "experience": "Swe Intern, Datadog",
-    "photo": "default.jpg",
-    "roles": [
-      "Vice President"
-    ]
+    "summary": "Hello, I would give a little intro about myself, but maybe it would be better to ask me in person :D",
+    "experience": "SWE Intern Datadog, Prev Amazon, Prev Bank of America",
+    "photo": "daniel.jpg",
+    "roles": ["Vice President"]
   },
   {
     "firstName": "Roshan",
     "lastName": "Jahan",
-    "filterTags": [
-      "executive"
-    ],
+    "filterTags": ["executive"],
     "year": "Junior",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/roshan-jahan",
     "website": "",
-    "summary": "",
-    "experience": "CVS Health, SWE",
+    "summary": "Hello! I’m Roshan, im currently studying cs and in my junior year. Some of my hobbies are watching kdrama and painting. I also like taking walks outside and my favorite food is sushi",
+    "experience": "SWE Intern, CVS Health",
     "photo": "Roshan.jpg",
-    "roles": [
-      "Secretary"
-    ]
+    "roles": ["Secretary"]
   },
   {
     "firstName": "Huzayfah",
     "lastName": "Hayyan",
-    "filterTags": [
-      "executive"
-    ],
+    "filterTags": ["executive"],
     "year": "Senior",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/hayyanawan",
@@ -63,35 +49,25 @@
     "summary": "Finishing up my Bachelor's in Computer Science. Former President of the MSA",
     "experience": "Previously worked at various NYC Public Schools in an IT role and completed various fellowships such as CUNY Tech Prep and BASTA.",
     "photo": "Huzayfah.jpg",
-    "roles": [
-      "Treasurer"
-    ]
+    "roles": ["Treasurer"]
   },
   {
     "firstName": "Nisan",
     "lastName": "Shaulov",
-    "filterTags": [
-      "events",
-      "academics"
-    ],
-    "year": "Sophomore",
+    "filterTags": ["events", "academics"],
+    "year": "",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/nisan-shaulov-2ba77032a",
     "website": "https://nisans.dev",
     "summary": "I really like reverse engineering and figuring out how things work!",
     "experience": "",
     "photo": "Nisan.jpg",
-    "roles": [
-      "Workshop Developer",
-      "Tutor"
-    ]
+    "roles": ["Workshop Developer", "Tutor"]
   },
   {
     "firstName": "Luis",
     "lastName": "Rodriguez",
-    "filterTags": [
-      "events"
-    ],
+    "filterTags": ["events"],
     "year": "Senior",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/luro-dev",
@@ -99,16 +75,12 @@
     "summary": "I'm an aspiring software engineer with a passion for backend development with languages like JS & Go. I love solving problems and working with others. When I'm not coding I'm either at the gym, riding my motorcycle, or lost in a good book.",
     "experience": "",
     "photo": "default.jpg",
-    "roles": [
-      "Workshop Developer"
-    ]
+    "roles": ["Workshop Developer"]
   },
   {
     "firstName": "Andrew",
     "lastName": "Jiang",
-    "filterTags": [
-      "events"
-    ],
+    "filterTags": ["events"],
     "year": "Senior",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/ajiangnyc/",
@@ -116,52 +88,38 @@
     "summary": "I'm a Senior majoring in Computer Science and I love creating small projects with Python and JavaScript. I'm also responsible for the CFA logo and branding redesign! On my days off, I really enjoy creating art, doing blind box openings, and spending time in nature.",
     "experience": "",
     "photo": "Andrew Jiang.jpg",
-    "roles": [
-      "Web Developer",
-      "Event Manager"
-    ]
+    "roles": ["Web Developer", "Event Manager"]
   },
   {
     "firstName": "Kyoshi",
     "lastName": "Noda",
-    "filterTags": [
-      "academics"
-    ],
+    "filterTags": ["academics"],
     "year": "Masters",
     "degree": "Masters",
     "linkedin": "https://www.linkedin.com/in/kyoshi-noda/",
     "website": "https://kyoshi-noda.vercel.app/",
     "summary": "Hey I'm one of the Mock Interviewers! On my free time I love to play soccer",
     "experience": "SWE Intern, Capital One",
-    "photo": "kyoshi.png",
-    "roles": [
-      "Mock Interviewer"
-    ]
+    "photo": "kyoshi.jpg",
+    "roles": ["Mock Interviewer"]
   },
   {
     "firstName": "Mohammed",
     "lastName": "Zian Hassan",
-    "filterTags": [
-      "academics"
-    ],
+    "filterTags": ["academics"],
     "year": "Alumni",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/mohammed-zian-hassan/",
     "website": "",
-    "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "summary": "Hi I'm Zian, hmu for mock interviews or if you're down for some badminton",
     "experience": "SWE, Bloomberg",
     "photo": "zian.jpg",
-    "roles": [
-      "Mock Interviewer"
-    ]
+    "roles": ["Mock Interviewer"]
   },
   {
     "firstName": "Shabir",
     "lastName": "Zahir",
-    "filterTags": [
-      "academics",
-      "events"
-    ],
+    "filterTags": ["academics", "events"],
     "year": "Senior",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/shabir-zahir/",
@@ -169,34 +127,25 @@
     "summary": "I love my cats Mango Mina",
     "experience": "prev @ CUIMC",
     "photo": "default.jpg",
-    "roles": [
-      "Mock Interviewer",
-      "Workshop Developer"
-    ]
+    "roles": ["Mock Interviewer", "Workshop Developer"]
   },
   {
     "firstName": "Sophia",
     "lastName": "Yau",
-    "filterTags": [
-      "academics"
-    ],
-    "year": "alumni",
+    "filterTags": ["academics"],
+    "year": "Alumni",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/sophiayau/",
-    "website": "",
-    "summary": "",
-    "experience": "SWE Capital One",
-    "photo": "default.jpg",
-    "roles": [
-      "Mock Interviewer"
-    ]
+    "website": "https://www.sophiayau.com/",
+    "summary": "Lover of cats, badminton, thriller books, and most importantly, Code For All! Being part of this community has helped and shaped me in so many ways and I'd love to give back wherever I can so feel free to reach out! :)",
+    "experience": "Research Data Engineer @ Diameter Capital, SWE @ Capital One",
+    "photo": "sophia.jpeg",
+    "roles": ["Mock Interviewer"]
   },
   {
     "firstName": "Nahin",
     "lastName": "Khan",
-    "filterTags": [
-      "marketing"
-    ],
+    "filterTags": ["marketing"],
     "year": "Freshman",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/nahinmkhan/",
@@ -204,33 +153,25 @@
     "summary": "Hey, everyone! My name is Nahin and I'm a freshman majoring in Applied Math and Computer Science. In my free time I like playing soccer.",
     "experience": "",
     "photo": "Nahin.png",
-    "roles": [
-      "Marketing"
-    ]
+    "roles": ["Marketing"]
   },
   {
     "firstName": "Masia",
     "lastName": "Maliha",
-    "filterTags": [
-      "marketing"
-    ],
-    "year": "Junior",
+    "filterTags": ["marketing"],
+    "year": "",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/maisa-maliha-5108721a6/",
     "website": "",
     "summary": "",
     "experience": "SWE Intern, JP MorganChase",
     "photo": "default.jpg",
-    "roles": [
-      "Outreach"
-    ]
+    "roles": ["Outreach"]
   },
   {
     "firstName": "Jason",
     "lastName": "Zheng",
-    "filterTags": [
-      "marketing"
-    ],
+    "filterTags": ["marketing"],
     "year": "Senior",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/jasonzheng12",
@@ -238,16 +179,12 @@
     "summary": "Hey I'm Jason 1v1 me on summoners rift",
     "experience": "",
     "photo": "Jason.png",
-    "roles": [
-      "Marketing"
-    ]
+    "roles": ["Marketing"]
   },
   {
     "firstName": "Jaden",
     "lastName": "Sjauw",
-    "filterTags": [
-      "marketing"
-    ],
+    "filterTags": ["marketing"],
     "year": "Senior",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/jaden-sjauw-a28551299/",
@@ -255,33 +192,25 @@
     "summary": "",
     "experience": "",
     "photo": "default.jpg",
-    "roles": [
-      "Marketing"
-    ]
+    "roles": ["Marketing"]
   },
   {
     "firstName": "Mosiur",
     "lastName": "Jabir",
-    "filterTags": [
-      "events"
-    ],
+    "filterTags": ["events"],
     "year": "Senior",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/mosiur-jabir/",
     "website": "",
-    "summary": "",
+    "summary": "Hi! I’m Jabir, a senior studying Financial Technology. I previously interned at Accenture and will be returning in Summer 2026.",
     "experience": "Analyst, Accenture",
-    "photo": "default.jpg",
-    "roles": [
-      "Workshop Developer"
-    ]
+    "photo": "jabir.png",
+    "roles": ["Workshop Developer"]
   },
   {
     "firstName": "Maruf",
     "lastName": "Azad",
-    "filterTags": [
-      "events"
-    ],
+    "filterTags": ["events"],
     "year": "Freshman",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/maruf-azad-05851137b/",
@@ -289,128 +218,84 @@
     "summary": "Hello everyone my name is Maruf. I am currently the Event Manager for Code for All, and I love all types of food, especially dessert.",
     "experience": "Unadat",
     "photo": "Maruf.png",
-    "roles": [
-      "Event Manager"
-    ]
+    "roles": ["Event Manager"]
   },
   {
     "firstName": "Sreileak",
     "lastName": "Theap",
-    "filterTags": [
-      "events"
-    ],
+    "filterTags": ["events"],
     "year": "Sophomore",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/sreileak-theap-41167a312/",
     "website": "",
-    "summary": "",
+    "summary": " I enjoy solving math problem!",
     "experience": "",
-    "photo": "default.jpg",
-    "roles": [
-      "Event Manager"
-    ]
+    "photo": "Sreileak.png",
+    "roles": ["Event Manager"]
   },
   {
     "firstName": "Yonghao",
     "lastName": "Lin",
-    "filterTags": [
-      "events"
-    ],
+    "filterTags": ["events"],
     "year": "Senior",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/yonghao-lin/",
     "website": "",
-    "summary": "",
-    "experience": "SWE, BlackRock",
-    "photo": "default.jpg",
-    "roles": [
-      "Event Manager"
-    ]
+    "summary": "Hey! I’m Yonghao, a Computer Science student with experience working on a variety of projects through past internships in both industry and startup environments. At Queens College, I’ve been actively involved in programs such as Service Corps, Career Launch, Student Ambassadors, CUNY Explorers, and Knights Table. As Event Manager for Code for All, I help plan and coordinate events that provide meaningful opportunities for students",
+    "experience": "Incoming BlackRock SWE, Prev BlackRock SWE Intern, Prev StemKASA SWE Intern, Prev CareerDay SWE Intern",
+    "photo": "yonghao.png",
+    "roles": ["Event Manager"]
   },
   {
     "firstName": "Tasnim",
     "lastName": "Hossain",
-    "filterTags": [
-      "marketing"
-    ],
-    "year": "Senior",
+    "filterTags": ["marketing"],
+    "year": "",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/tasnim-hossain-ny/",
     "website": "",
     "summary": "",
     "experience": "SWE Intern, NYC Department Enviromental Protection",
     "photo": "default.jpg",
-    "roles": [
-      "Newsletter"
-    ]
+    "roles": ["Newsletter"]
   },
   {
     "firstName": "Angel (Kerlyn)",
     "lastName": "Difo",
-    "filterTags": [
-      "marketing"
-    ],
+    "filterTags": ["events", "marketing"],
     "year": "Senior",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/kerlyn-angel-difo/",
     "website": "https://www.kerlyndifo.com/",
-    "summary": "",
-    "experience": "SWE Intern, Google",
-    "photo": "default.jpg",
-    "roles": [
-      "Newsletter"
-    ]
-  },
-  {
-    "firstName": "Eric",
-    "lastName": "Salazar",
-    "filterTags": [
-      "pastBoard"
-    ],
-    "year": "Senior",
-    "degree": "Bachelors",
-    "linkedin": "https://www.linkedin.com/in/eric-salazar04/",
-    "website": "",
-    "summary": "",
-    "experience": "SWE Intern, Datadog",
-    "photo": "default.jpg",
-    "past_board": "true",
-    "roles": [
-      "Marketing"
-    ]
+    "summary": "Hai I’m Angel I'm addicted to energy drinks",
+    "experience": "SWE Intern, Google, Prev Datadog, Prev Capital One",
+    "photo": "angel.jpg",
+    "roles": ["Newsletter", "Workshop Developer"]
   },
   {
     "firstName": "Poyao",
     "lastName": "Tsui",
-    "filterTags": [
-      "marketing"
-    ],
+    "filterTags": ["marketing"],
     "year": "Senior",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/poyaotsui/",
     "website": "",
-    "summary": "",
+    "summary": "“No need to fear , the munch man is here”",
     "experience": "",
-    "photo": "default.jpg",
-    "roles": [
-      "Marketing"
-    ]
+    "photo": "Poyao.png",
+    "roles": ["Marketing"]
   },
   {
     "firstName": "MD Sharear",
     "lastName": "Shefat",
-    "filterTags": [
-      "academics"
-    ],
-    "year": "Senior",
+    "filterTags": ["academics", "marketing"],
+    "year": "Junior",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/md-sharear-shefat-2425b0304/",
     "website": "",
-    "summary": "",
+    "summary": "Currently a junior in Queens College majoring in CS. I love traveling, listening to music and watching TV shows.",
     "experience": "SWE Intern, RICH",
-    "photo": "default.jpg",
-    "roles": [
-      "Tutor"
-    ]
+    "photo": "MD.jpeg",
+    "roles": ["Tutor", "Outreach"]
   }
 ]

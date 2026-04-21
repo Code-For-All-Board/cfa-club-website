@@ -1,19 +1,29 @@
+import { motion } from "motion/react";
+
 import type { BoardMember } from "../data/boardData";
 
 type BoardMemberCardProps = {
   boardMember: BoardMember;
-  onLearnMore: (boardMember: BoardMember) => void;
+  onOpenBoardMember: (boardMember: BoardMember) => void;
 };
 
 export function BoardMemberCard({
   boardMember,
-  onLearnMore,
+  onOpenBoardMember,
 }: BoardMemberCardProps) {
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-4xl bg-white shadow-[0_24px_80px_rgba(30,30,36,0.16)] ring-1 ring-[#1e1e24]/8">
+    <motion.button
+      layout
+      type="button"
+      onClick={() => onOpenBoardMember(boardMember)}
+      whileHover={{ y: -8, scale: 1.015 }}
+      whileTap={{ scale: 0.985 }}
+      transition={{ type: "spring", stiffness: 280, damping: 22 }}
+      className="hover:cursor-pointer group flex h-full w-full flex-col overflow-hidden rounded-4xl bg-white text-left shadow-[0_24px_80px_rgba(30,30,36,0.16)] ring-1 ring-[#1e1e24]/8 transition-shadow hover:shadow-[0_30px_90px_rgba(30,30,36,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400 focus-visible:ring-offset-2"
+    >
       <div
         className={[
-          "flex aspect-346/294 items-center justify-center overflow-hidden",
+          "flex aspect-346/294 items-center justify-center overflow-hidden s",
           boardMember.hasPhoto ? "bg-slate-200" : "bg-[#1e1e24]",
         ].join(" ")}
       >
@@ -21,7 +31,7 @@ export function BoardMemberCard({
           src={boardMember.photoSrc}
           alt={boardMember.hasPhoto ? boardMember.fullName : "Code For All logo"}
           className={[
-            "h-full w-full",
+            "h-full w-full transition duration-500 group-hover:scale-[1.03]",
             boardMember.hasPhoto ? "object-cover" : "max-h-32 object-contain px-8",
           ].join(" ")}
         />
@@ -39,17 +49,7 @@ export function BoardMemberCard({
         <p className="mt-4 line-clamp-3 text-base leading-7 text-slate-600">
           {boardMember.summary}
         </p>
-
-        <div className="mt-auto pt-8">
-          <button
-            type="button"
-            onClick={() => onLearnMore(boardMember)}
-            className="inline-flex min-h-9.25 items-center justify-center rounded-xl bg-[#c084fc] px-6 py-2 font-['Lexend',sans-serif] text-base font-medium text-[#1e1e24] transition hover:bg-[#a855f7] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400 focus-visible:ring-offset-2"
-          >
-            Learn More
-          </button>
-        </div>
       </div>
-    </article>
+    </motion.button>
   );
 }
