@@ -1,6 +1,4 @@
-
-
-
+const BASE_URL = import.meta.env.VITE_LEETCODE_API_BASE;
 const fetcher = (url: string, options: RequestInit = {}) =>
   fetch(url, options)
     .then((res) => {
@@ -14,34 +12,28 @@ const fetcher = (url: string, options: RequestInit = {}) =>
       throw error;
     });
 
-const discordLookup = async (userName: string) => {
-    const discordUrl = "https://server.rakibshahid.com/api/discord_lookup";
-    const discordOptions: RequestInit = {
-      method: "GET",
-      headers: {
-        "discord-username": userName 
-        }
-    };
-    const response = await fetch(discordUrl, discordOptions);
-    return response;
-}
+const lookupUser = async (
+  type: "discord" | "leetcode",
+  userName: string
+) => {
+  const url = `${BASE_URL}/api/${type}_lookup`;
 
-const leetcodeLookup = async (userName: string) => {
-    const leetcodeUrl = "https://server.rakibshahid.com/api/leetcode_lookup";
-    const leetcodeOptions: RequestInit = {
-      method: "GET",
-      headers: {
-        "leetcode-username": userName,
-      },
-    };
-    return await fetch(leetcodeUrl, leetcodeOptions);
-}
+  const response = await fetch(url, {
+    method: "GET",
+    headers: {
+      [`${type}-username`]: userName,
+    },
+  });
+
+  return response;
+};
+
 
 const fetchUser = async (userName: string) => {
     // The function will first try to fetch the discord userName and if there is no match it willf fetch the leetcode userName
-    let response = await discordLookup(userName);
+    let response = await lookupUser("discord", userName);
     if (!response.ok) {
-        response = await leetcodeLookup(userName);
+        response = await lookupUser("leetcode", userName);
     }
     if (!response.ok) {
         throw new Error("Both APIs failed to fetch user data.");
@@ -52,12 +44,12 @@ const fetchUser = async (userName: string) => {
 }
 
 const fetchLeaderboard = async () => {
-    const leaderboardUrl = "https://server.rakibshahid.com/leaderboard";
+    const leaderboardUrl = `${BASE_URL}/leaderboard`;
     return fetcher(leaderboardUrl);
 }
 
 const fetchLeaderboardHistory = async () => {
-    const historyUrl = "https://server.rakibshahid.com/leaderboard/leaderboard_history";
+    const historyUrl = `${BASE_URL}/leaderboard/leaderboard_history`;
     return fetcher(historyUrl);
 }
 
