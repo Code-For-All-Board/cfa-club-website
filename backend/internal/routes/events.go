@@ -3,144 +3,139 @@ package routes
 import (
 	"backend/internal/logger"
 	"backend/internal/scraper"
-	"bytes"
 	"encoding/json"
-	"hash/crc32"
 	"net/http"
 	"os"
+	"path/filepath"
+	"sync"
+	"time"
 )
 
-var previous_checksum uint32
-var has_checksum bool
+const (
+	event_cache_interval = 10 * time.Minute
+	upcoming_cache_path  = "cache/upcoming_events.json"
+	past_cache_path      = "cache/past_events.json"
+)
 
-/*
-"we don't tolerate any nonsense here!"
-the humble hash checker:
-*/
-func hash_checker(bytes []byte) uint32 {
-	crc32q := crc32.MakeTable(0xC0FFEE)
-	return crc32.Checksum(bytes, crc32q)
+var event_cache_mu sync.RWMutex
+
+func cache_path(eventType uint32) string {
+	switch eventType {
+	case scraper.Upcoming:
+		return upcoming_cache_path
+	case scraper.Past:
+		return past_cache_path
+	default:
+		return ""
+	}
 }
 
-func load_previous_checksum() bool {
-	data, err := os.ReadFile("events.json")
-	if err != nil {
-		return false
-	}
-
-	data = bytes.TrimSpace(data)
-	if len(data) == 0 {
-		return false
-	}
-
-	if data[0] != '[' {
-		previous_checksum = hash_checker(data)
-		has_checksum = true
-		return true
-	}
-
-	var events []json.RawMessage
-	if err := json.Unmarshal(data, &events); err != nil || len(events) == 0 {
-		return false
-	}
-
-	previous_checksum = hash_checker(events[len(events)-1])
-	has_checksum = true
-	return true
-}
-
-func append_events(data []byte) error {
-	existing, err := os.ReadFile("events.json")
-	if os.IsNotExist(err) || len(bytes.TrimSpace(existing)) == 0 {
-		return os.WriteFile("events.json", append([]byte("[\n"), append(data, []byte("\n]\n")...)...), 0644)
-	}
+func refresh_scrape(eventType uint32) error {
+	events, err := scraper.ParseContent(eventType)
 	if err != nil {
 		return err
 	}
 
-	trimmed := bytes.TrimSpace(existing)
-	if trimmed[0] != '[' {
-		next := append([]byte("[\n"), trimmed...)
-		next = append(next, []byte(",\n")...)
-		next = append(next, data...)
-		next = append(next, []byte("\n]\n")...)
-		return os.WriteFile("events.json", next, 0644)
-	}
-
-	file, err := os.OpenFile("events.json", os.O_RDWR, 0644)
+	data, err := json.MarshalIndent(events, "", "  ")
 	if err != nil {
 		return err
 	}
-	defer file.Close()
 
-	end := int64(len(existing))
-	for end > 0 {
-		if !bytes.ContainsAny(existing[end-1:end], " \n\r\t") {
-			break
+	path := cache_path(eventType)
+	if path == "" {
+		return os.ErrInvalid
+	}
+
+	if err := os.MkdirAll(filepath.Dir(path), 0755); err != nil {
+		return err
+	}
+
+	event_cache_mu.Lock()
+	defer event_cache_mu.Unlock()
+
+	return os.WriteFile(path, data, 0644)
+}
+
+func RefreshEventCache() {
+	if err := refresh_scrape(scraper.Upcoming); err != nil {
+		logger.Log(logger.Error, "failed to refresh upcoming events: ", err.Error())
+	}
+
+	if err := refresh_scrape(scraper.Past); err != nil {
+		logger.Log(logger.Error, "failed to refresh past events: ", err.Error())
+	}
+}
+
+func StartEventCacheRefresher() {
+	go func() {
+		ticker := time.NewTicker(event_cache_interval)
+		defer ticker.Stop()
+
+		for range ticker.C {
+			RefreshEventCache()
 		}
-		end--
-	}
-
-	if end == 0 || existing[end-1] != ']' {
-		return os.WriteFile("events.json", append([]byte("[\n"), append(data, []byte("\n]\n")...)...), 0644)
-	}
-
-	prefix := bytes.TrimSpace(existing[:end-1])
-	separator := []byte("\n")
-	if len(prefix) > 1 {
-		separator = []byte(",\n")
-	}
-
-	if err := file.Truncate(end - 1); err != nil {
-		return err
-	}
-	if _, err := file.Seek(end-1, 0); err != nil {
-		return err
-	}
-
-	_, err = file.Write(append(separator, append(data, []byte("\n]\n")...)...))
-	return err
+	}()
 }
 
-func store_events(data []byte) {
-	current_checksum := hash_checker(data)
-	if !has_checksum {
-		load_previous_checksum()
+func read_cached_events(eventType uint32) ([]scraper.Event, error) {
+	path := cache_path(eventType)
+	if path == "" {
+		return []scraper.Event{}, os.ErrInvalid
 	}
 
-	if has_checksum && previous_checksum == current_checksum {
-		logger.Log(logger.Info, "events unchanged; skipping file write")
+	event_cache_mu.RLock()
+	data, err := os.ReadFile(path)
+	event_cache_mu.RUnlock()
+
+	if err != nil {
+		return []scraper.Event{}, err
+	}
+
+	var events []scraper.Event
+	if err := json.Unmarshal(data, &events); err != nil {
+		return []scraper.Event{}, err
+	}
+
+	return events, nil
+}
+
+func write_events_response(w http.ResponseWriter, events []scraper.Event, emptyMessage string) {
+	w.Header().Set("Content-Type", "application/json")
+
+	if len(events) == 0 {
+		json.NewEncoder(w).Encode(map[string]string{
+			"message": emptyMessage,
+		})
 		return
 	}
 
-	if err := append_events(data); err != nil {
-		logger.Log(logger.Error, err.Error())
+	json.NewEncoder(w).Encode(events)
+}
+
+func handle_cache_error(w http.ResponseWriter, err error) {
+	logger.Log(logger.Error, err.Error())
+	w.WriteHeader(http.StatusInternalServerError)
+	w.Write([]byte("Internal Server Error"))
+}
+
+func GetPastEvents(w http.ResponseWriter, r *http.Request) {
+	events, err := read_cached_events(scraper.Past)
+
+	if err != nil {
+		handle_cache_error(w, err)
 		return
 	}
 
-	previous_checksum = current_checksum
-	has_checksum = true
-	logger.Log(logger.Info, "events changed; appended events.json")
+	write_events_response(w, events, "No past events")
 }
 
 func GetUpcomingEvents(w http.ResponseWriter, r *http.Request) {
-	event, err := scraper.ParseContent()
+	events, err := read_cached_events(scraper.Upcoming)
 
 	if err != nil {
-		logger.Log(logger.Error, err.Error())
-		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte("Internal Server Error"))
+		handle_cache_error(w, err)
 		return
 	}
 
-	json_bytes, err := json.Marshal(event)
-	if err != nil {
-		logger.Log(logger.Error, err.Error())
-		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte("Internal Server Error"))
-		return
-	}
-	w.Header().Set("Content-Type", "application/json")
-	w.Write(json_bytes)
-	store_events(json_bytes)
+	write_events_response(w, events, "No upcoming events")
 }

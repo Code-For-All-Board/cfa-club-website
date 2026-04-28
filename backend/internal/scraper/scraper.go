@@ -2,6 +2,7 @@ package scraper
 
 import (
 	"backend/internal/logger"
+
 	"context"
 	"regexp"
 	"strings"
@@ -11,7 +12,20 @@ import (
 	"github.com/chromedp/chromedp"
 )
 
-func scrape() (string, error) {
+// LOL
+const events_loaded_script = `
+(() => {
+	const container = document.querySelector('#divAllItems');
+	if (!container) {
+		return false;
+	}
+
+	return container.querySelector('li[id^="event_"]') !== null ||
+		document.querySelector('#no_result_txt') !== null;
+})()
+`
+
+func scrape(url string) (string, error) {
 	ctx, cancel := chromedp.NewContext(context.Background())
 	defer cancel()
 
@@ -19,17 +33,18 @@ func scrape() (string, error) {
 	defer cancel()
 
 	var html string
+	var loaded bool
 
 	err := chromedp.Run(ctx,
-		chromedp.Navigate("https://uknighted.qc.cuny.edu/events?search_word=code+for+all"),
-		chromedp.WaitVisible(`#divAllItems li[id^="event_"]`, chromedp.ByQuery),
-		//chromedp.OuterHTML(`#divAllItems`, &html, chromedp.ByQuery),
+		chromedp.Navigate(url),
+		chromedp.WaitReady(`#divAllItems`, chromedp.ByQuery),
+		chromedp.Poll(events_loaded_script, &loaded, chromedp.WithPollingInterval(250*time.Millisecond)),
 		chromedp.InnerHTML(`#divAllItems`, &html, chromedp.ByQuery),
 	)
 
 	if err != nil {
 		logger.Log(logger.Error, err.Error())
-		return err.Error(), err
+		return "", err
 	}
 
 	return html, nil
@@ -68,24 +83,37 @@ type Event struct {
 	Description string   `json:"description"`
 }
 
-func ParseContent() (Event, error) {
-	html, err := scrape()
+const (
+	Upcoming uint32 = 0
+	Past     uint32 = 1
+)
+
+func ParseContent(event_type uint32) ([]Event, error) {
+	var html string
+	var err error
+
+	switch event_type {
+	case Upcoming:
+		html, err = scrape("https://uknighted.qc.cuny.edu/events?search_word=code+for+all")
+	case Past:
+		html, err = scrape("https://uknighted.qc.cuny.edu/events?search_word=code+for+all&show=past")
+	}
 
 	if err != nil {
 		logger.Log(logger.Error, err.Error())
-		return Event{}, err
+		return []Event{}, err
 	}
 
 	doc, err := goquery.NewDocumentFromReader(strings.NewReader(html))
 
 	if err != nil {
 		logger.Log(logger.Error, err.Error())
-		return Event{}, err
+		return []Event{}, err
 	}
 
 	items := doc.Find(`li[id^="event_"]`)
 
-	var event Event
+	events := []Event{}
 
 	items.Each(func(i int, s *goquery.Selection) {
 		id, _ := s.Attr("id")
@@ -112,7 +140,7 @@ func ParseContent() (Event, error) {
 		aria_description, _ := link.Attr("aria-description")
 		date, time, location, _ := grab_date_time_location(aria_description)
 
-		event = Event{
+		events = append(events, Event{
 			ID:          id,
 			Title:       title,
 			Href:        href,
@@ -122,8 +150,8 @@ func ParseContent() (Event, error) {
 			ImageURL:    image_url,
 			Tags:        tags,
 			Description: aria_description,
-		}
+		})
 	})
 
-	return event, nil
+	return events, nil
 }

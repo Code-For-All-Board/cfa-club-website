@@ -2,7 +2,6 @@ package main
 
 import (
 	"backend/internal/logger"
-	//"backend/internal/scraper"
 	"backend/internal/routes"
 
 	"net/http"
@@ -16,6 +15,10 @@ func main() {
 	})
 
 	mux.HandleFunc("GET /upcoming-events", routes.GetUpcomingEvents)
+	mux.HandleFunc("GET /past-events", routes.GetPastEvents)
+
+	routes.RefreshEventCache()
+	routes.StartEventCacheRefresher()
 
 	logger.Log(logger.Info, "route created")
 
