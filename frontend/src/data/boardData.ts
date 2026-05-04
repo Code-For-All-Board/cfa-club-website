@@ -36,6 +36,7 @@ export type BoardMember = {
   summary: string;
   experience: string;
   photoSrc: string;
+  photoPosition?: string;
   hasPhoto: boolean;
   pastBoard: boolean;
   filterTags: BoardFilterId[];
@@ -64,6 +65,11 @@ const boardImagesByName = Object.fromEntries(
   }),
 );
 
+// Board pictures that need to be fixed, becuz face got cut off.
+const faceCutoffsPictures: Record<string, string> = {
+  "tasnim.png": "center 18%",
+};
+
 const boardInfo = boardInfoRaw as BoardMemberJson[];
 
 export const boardMembers: BoardMember[] = boardInfo.map(
@@ -72,6 +78,7 @@ export const boardMembers: BoardMember[] = boardInfo.map(
     const photoSrc = photoFileName
       ? (boardImagesByName[photoFileName] ?? cfaHorizontalLogo)
       : cfaHorizontalLogo;
+    const photoPosition = faceCutoffsPictures[photoFileName];
     const pastBoard = String(boardMember.past_board).toLowerCase() === "true";
     const roles = boardMember.roles ?? [];
     const filterTags: BoardFilterId[] = pastBoard
@@ -94,6 +101,7 @@ export const boardMembers: BoardMember[] = boardInfo.map(
       experience:
         boardMember.experience.trim() || "Experience details coming soon.",
       photoSrc,
+      photoPosition,
       hasPhoto: Boolean(photoFileName && boardImagesByName[photoFileName]),
       pastBoard,
       filterTags,
