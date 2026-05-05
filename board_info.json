@@ -156,6 +156,19 @@
     "roles": ["Workshop Developer", "Tutor"]
   },
   {
+     "firstName": "Lauren",
+    "lastName": "Mistretta",
+    "filterTags": ["academics"],
+    "year": "Master",
+    "degree": "Master",
+    "linkedin": "https://www.linkedin.com/in/lauren-mistretta-9027aa253/",
+    "website": "",
+    "summary": "Lauren is a current masters student in Computer Science who graduated with her BA in CS in June 2025.  She served in the eboards of several clubs on campus and currently serves as an advisor for Code for All and Girls Who Code.  Her goal is to become a computer science professor and has been teaching a Java Lab and Precalculus Recitations this semester.",
+    "experience": "",
+    "photo": "lauren.jpg",
+    "roles": ["CS Advisor"]
+  },
+  {
     "firstName": "Luis",
     "lastName": "Rodriguez",
     "filterTags": ["events"],
@@ -301,7 +314,7 @@
   {
     "firstName": "Cody",
     "lastName": "",
-    "filterTags": ["executive"],
+    "filterTags": ["executive","academics"],
     "year": "Freshman",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/maruf-azad-05851137b/",
