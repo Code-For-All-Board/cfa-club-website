@@ -133,9 +133,9 @@ export function NavBar() {
             href={discordUrl}
             target="_blank"
             rel="noreferrer"
-            className="rounded-xl bg-linear-to-r from-fuchsia-500 via-violet-500 to-cyan-400 px-5 py-2.5 font-['Lexend',sans-serif] text-base font-medium leading-none text-white shadow-[0_12px_30px_rgba(168,85,247,0.28)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(168,85,247,0.38)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1e1e24]"
+            className="rounded-xl bg-[#a855f7] px-5 py-2.5 font-['Lexend',sans-serif] text-base font-medium leading-none text-white shadow-[0_12px_30px_rgba(168,85,247,0.28)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(168,85,247,0.38)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1e1e24]"
           >
-            Join Discord
+            Join Discord  
           </a>
         </div>
 
@@ -205,13 +205,12 @@ export function NavBar() {
                   </motion.div>
                 ))}
               </motion.nav>
-
               <motion.div variants={menuItemVariants} className="mt-4">
                 <a
                   href={discordUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="group flex items-center justify-between rounded-[1.35rem] bg-linear-to-r from-fuchsia-500 via-violet-500 to-cyan-400 px-4 py-3 font-['Lexend',sans-serif] text-base font-medium text-white shadow-[0_18px_35px_rgba(168,85,247,0.25)] transition duration-300 hover:shadow-[0_20px_42px_rgba(168,85,247,0.34)]"
+                  className="group flex items-center justify-between rounded-[1.35rem]  bg-[#a855f7] px-4 py-3 font-['Lexend',sans-serif] text-base font-medium text-white shadow-[0_18px_35px_rgba(168,85,247,0.25)] transition duration-300 hover:shadow-[0_20px_42px_rgba(168,85,247,0.34)]"
                 >
                   <span>Join Discord</span>
                   <motion.span
