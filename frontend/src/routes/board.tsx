@@ -105,12 +105,16 @@ export default function Board() {
         </motion.div>
 
         <LayoutGroup id="board-grid">
-          <motion.div layout className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+          <motion.div
+            layout
+            className="mt-12 grid justify-items-center gap-8 md:grid-cols-2 xl:grid-cols-3 xl:gap-9"
+          >
             <AnimatePresence mode="popLayout">
               {visibleBoardMembers.map((boardMember, index) => (
                 <motion.div
                   key={boardMember.id}
                   layout
+                  className="w-full max-w-106"
                   initial={{ opacity: 0, y: 30, scale: 0.96 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 18, scale: 0.96 }}

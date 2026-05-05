@@ -30,6 +30,11 @@ export function BoardMemberCard({
         <img
           src={boardMember.photoSrc}
           alt={boardMember.hasPhoto ? boardMember.fullName : "Code For All logo"}
+          style={
+            boardMember.hasPhoto && boardMember.photoPosition
+              ? { objectPosition: boardMember.photoPosition }
+              : undefined
+          }
           className={[
             "h-full w-full transition duration-500 group-hover:scale-[1.03]",
             boardMember.hasPhoto ? "object-cover" : "max-h-32 object-contain px-8",

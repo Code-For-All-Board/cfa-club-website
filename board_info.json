@@ -68,13 +68,13 @@
     "firstName": "Tasnim",
     "lastName": "Hossain",
     "filterTags": ["marketing"],
-    "year": "",
+    "year": "Senior",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/tasnim-hossain-ny/",
     "website": "",
-    "summary": "",
+    "summary": "Hi im tasnim currently a senior and i enjoy full stack development",
     "experience": "SWE Intern, NYC Department Enviromental Protection",
-    "photo": "default.jpg",
+    "photo": "tasnim.png",
     "roles": ["Newsletter"]
   },
   {
@@ -113,7 +113,7 @@
     "website": "",
     "summary": "I love my cats Mango Mina",
     "experience": "prev @ CUIMC",
-    "photo": "default.jpg",
+    "photo": "shabir.png",
     "roles": ["Mock Interviewer", "Workshop Developer"]
   },
   {
@@ -146,7 +146,7 @@
     "firstName": "Nisan",
     "lastName": "Shaulov",
     "filterTags": ["events", "academics"],
-    "year": "",
+    "year": "Sophomore",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/nisan-shaulov-2ba77032a",
     "website": "https://nisans.dev",
@@ -165,7 +165,7 @@
     "website": "",
     "summary": "I'm an aspiring software engineer with a passion for backend development with languages like JS & Go. I love solving problems and working with others. When I'm not coding I'm either at the gym, riding my motorcycle, or lost in a good book.",
     "experience": "",
-    "photo": "default.jpg",
+    "photo": "luis.jpg",
     "roles": ["Workshop Developer"]
   },
   {
@@ -198,13 +198,13 @@
     "firstName": "Masia",
     "lastName": "Maliha",
     "filterTags": ["marketing"],
-    "year": "",
+    "year": "Junior",
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/maisa-maliha-5108721a6/",
     "website": "",
-    "summary": "",
-    "experience": "SWE Intern, JP MorganChase",
-    "photo": "default.jpg",
+    "summary": "I’m Maisa Maliha, a junior studying Computer Science with a strong interest in quantitative finance and building technology that supports Wall Street institutions and financial systems.\nOutside of academics, I enjoy cooking, reading, and exploring New York City. I’m currently an incoming Software Engineering Intern at JPMorgan Chase and BAE Systems, and an AI Fellow with Cornell Tech’s Break Through Tech program.",
+    "experience": "SWE Intern, JP MorganChase, SWE Intern, BAE Systems",
+    "photo": "maisa.png",
     "roles": ["Outreach"]
   },
   {
@@ -254,9 +254,9 @@
     "degree": "Bachelors",
     "linkedin": "https://www.linkedin.com/in/jaden-sjauw-a28551299/",
     "website": "",
-    "summary": "",
+    "summary": "Hey guys! I’m Jaden I’m an economics major with a computer science minor, with a focus on data analytics. I’m a rising senior graduating Fall 2026. One thing I love to nerd out about is live music, I’ve gone to hundreds of concerts, it truly makes living worthwhile.",
     "experience": "",
-    "photo": "default.jpg",
+    "photo": "jaden.jpg",
     "roles": ["Marketing"]
   },
   {

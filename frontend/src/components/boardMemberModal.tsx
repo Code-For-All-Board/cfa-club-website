@@ -77,6 +77,11 @@ export function BoardMemberModal({
                 <motion.img
                   src={boardMember.photoSrc}
                   alt={boardMember.hasPhoto ? boardMember.fullName : "Code For All logo"}
+                  style={
+                    boardMember.hasPhoto && boardMember.photoPosition
+                      ? { objectPosition: boardMember.photoPosition }
+                      : undefined
+                  }
                   className={[
                     "h-full w-full rounded-[28px]",
                     boardMember.hasPhoto
