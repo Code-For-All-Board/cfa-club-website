@@ -12,25 +12,25 @@ import (
 )
 
 const (
-	event_cache_interval = 10 * time.Minute
-	upcoming_cache_path  = "cache/upcoming_events.json"
-	past_cache_path      = "cache/past_events.json"
+	eventCacheInterval = 10 * time.Minute
+	upcomingCachePath  = "cache/upcoming_events.json"
+	pastCachePath      = "cache/past_events.json"
 )
 
-var event_cache_mu sync.RWMutex
+var eventCacheMu sync.RWMutex
 
-func cache_path(eventType uint32) string {
+func cachePath(eventType uint32) string {
 	switch eventType {
 	case scraper.Upcoming:
-		return upcoming_cache_path
+		return upcomingCachePath
 	case scraper.Past:
-		return past_cache_path
+		return pastCachePath
 	default:
 		return ""
 	}
 }
 
-func refresh_scrape(eventType uint32) error {
+func refreshScrape(eventType uint32) error {
 	events, err := scraper.ParseContent(eventType)
 	if err != nil {
 		return err
@@ -41,7 +41,7 @@ func refresh_scrape(eventType uint32) error {
 		return err
 	}
 
-	path := cache_path(eventType)
+	path := cachePath(eventType)
 	if path == "" {
 		return os.ErrInvalid
 	}
@@ -50,25 +50,25 @@ func refresh_scrape(eventType uint32) error {
 		return err
 	}
 
-	event_cache_mu.Lock()
-	defer event_cache_mu.Unlock()
+	eventCacheMu.Lock()
+	defer eventCacheMu.Unlock()
 
 	return os.WriteFile(path, data, 0644)
 }
 
 func RefreshEventCache() {
-	if err := refresh_scrape(scraper.Upcoming); err != nil {
+	if err := refreshScrape(scraper.Upcoming); err != nil {
 		logger.Log(logger.Error, "failed to refresh upcoming events: ", err.Error())
 	}
 
-	if err := refresh_scrape(scraper.Past); err != nil {
+	if err := refreshScrape(scraper.Past); err != nil {
 		logger.Log(logger.Error, "failed to refresh past events: ", err.Error())
 	}
 }
 
 func StartEventCacheRefresher() {
 	go func() {
-		ticker := time.NewTicker(event_cache_interval)
+		ticker := time.NewTicker(eventCacheInterval)
 		defer ticker.Stop()
 
 		for range ticker.C {
@@ -77,15 +77,15 @@ func StartEventCacheRefresher() {
 	}()
 }
 
-func read_cached_events(eventType uint32) ([]scraper.Event, error) {
-	path := cache_path(eventType)
+func readCachedEvents(eventType uint32) ([]scraper.Event, error) {
+	path := cachePath(eventType)
 	if path == "" {
 		return []scraper.Event{}, os.ErrInvalid
 	}
 
-	event_cache_mu.RLock()
+	eventCacheMu.RLock()
 	data, err := os.ReadFile(path)
-	event_cache_mu.RUnlock()
+	eventCacheMu.RUnlock()
 
 	if err != nil {
 		return []scraper.Event{}, err
@@ -99,43 +99,40 @@ func read_cached_events(eventType uint32) ([]scraper.Event, error) {
 	return events, nil
 }
 
-func write_events_response(w http.ResponseWriter, events []scraper.Event, emptyMessage string) {
+func writeEventsResponse(w http.ResponseWriter, events []scraper.Event) {
 	w.Header().Set("Content-Type", "application/json")
 
-	if len(events) == 0 {
-		json.NewEncoder(w).Encode(map[string]string{
-			"message": emptyMessage,
-		})
-		return
+	if events == nil {
+		events = []scraper.Event{}
 	}
 
 	json.NewEncoder(w).Encode(events)
 }
 
-func handle_cache_error(w http.ResponseWriter, err error) {
+func handleCacheError(w http.ResponseWriter, err error) {
 	logger.Log(logger.Error, err.Error())
 	w.WriteHeader(http.StatusInternalServerError)
 	w.Write([]byte("Internal Server Error"))
 }
 
 func GetPastEvents(w http.ResponseWriter, r *http.Request) {
-	events, err := read_cached_events(scraper.Past)
+	events, err := readCachedEvents(scraper.Past)
 
 	if err != nil {
-		handle_cache_error(w, err)
+		handleCacheError(w, err)
 		return
 	}
 
-	write_events_response(w, events, "No past events")
+	writeEventsResponse(w, events)
 }
 
 func GetUpcomingEvents(w http.ResponseWriter, r *http.Request) {
-	events, err := read_cached_events(scraper.Upcoming)
+	events, err := readCachedEvents(scraper.Upcoming)
 
 	if err != nil {
-		handle_cache_error(w, err)
+		handleCacheError(w, err)
 		return
 	}
 
-	write_events_response(w, events, "No upcoming events")
+	writeEventsResponse(w, events)
 }

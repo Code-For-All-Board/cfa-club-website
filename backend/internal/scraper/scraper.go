@@ -4,6 +4,7 @@ import (
 	"backend/internal/logger"
 
 	"context"
+	"fmt"
 	"regexp"
 	"strings"
 	"time"
@@ -13,7 +14,7 @@ import (
 )
 
 // LOL
-const events_loaded_script = `
+const eventsLoadedScript = `
 (() => {
 	const container = document.querySelector('#divAllItems');
 	if (!container) {
@@ -38,7 +39,7 @@ func scrape(url string) (string, error) {
 	err := chromedp.Run(ctx,
 		chromedp.Navigate(url),
 		chromedp.WaitReady(`#divAllItems`, chromedp.ByQuery),
-		chromedp.Poll(events_loaded_script, &loaded, chromedp.WithPollingInterval(250*time.Millisecond)),
+		chromedp.Poll(eventsLoadedScript, &loaded, chromedp.WithPollingInterval(250*time.Millisecond)),
 		chromedp.InnerHTML(`#divAllItems`, &html, chromedp.ByQuery),
 	)
 
@@ -50,7 +51,7 @@ func scrape(url string) (string, error) {
 	return html, nil
 }
 
-func grab_date_time_location(description string) (string, string, string, bool) {
+func grabDateTimeLocation(description string) (string, string, string, bool) {
 	var regex = regexp.MustCompile(
 		`((?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\s+\d{1,2}\s+[A-Za-z]+\s+\d{4})\s+At\s+(\d{1,2}:\d{2}\s+[AP]M,\s+[A-Z]{2,4}\s+\(GMT[^\)]*\))\.\s*(.*?)\s*\.\s*Opens the event page\.`,
 	)
@@ -61,14 +62,14 @@ func grab_date_time_location(description string) (string, string, string, bool) 
 	}
 
 	date := strings.TrimSpace(matches[1])
-	time := strings.TrimSpace(matches[2])
+	eventTime := strings.TrimSpace(matches[2])
 	location := strings.TrimSpace(matches[3])
 
 	if location == "Private Location ( sign in to display )" {
 		location = "N/A"
 	}
 
-	return date, time, location, true
+	return date, eventTime, location, true
 }
 
 type Event struct {
@@ -88,15 +89,17 @@ const (
 	Past     uint32 = 1
 )
 
-func ParseContent(event_type uint32) ([]Event, error) {
+func ParseContent(eventType uint32) ([]Event, error) {
 	var html string
 	var err error
 
-	switch event_type {
+	switch eventType {
 	case Upcoming:
 		html, err = scrape("https://uknighted.qc.cuny.edu/events?search_word=code+for+all")
 	case Past:
 		html, err = scrape("https://uknighted.qc.cuny.edu/events?search_word=code+for+all&show=past")
+	default:
+		return nil, fmt.Errorf("invalid event type: %d", eventType)
 	}
 
 	if err != nil {
@@ -134,22 +137,22 @@ func ParseContent(event_type uint32) ([]Event, error) {
 			}
 		})
 
-		image_url, _ := s.Find(".listing-element__preimg-block img").First().Attr("src")
+		imageURL, _ := s.Find(".listing-element__preimg-block img").First().Attr("src")
 		title := strings.TrimSpace(link.Text())
 		href, _ := link.Attr("href")
-		aria_description, _ := link.Attr("aria-description")
-		date, time, location, _ := grab_date_time_location(aria_description)
+		ariaDescription, _ := link.Attr("aria-description")
+		date, eventTime, location, _ := grabDateTimeLocation(ariaDescription)
 
 		events = append(events, Event{
 			ID:          id,
 			Title:       title,
 			Href:        href,
 			Date:        date,
-			Time:        time,
+			Time:        eventTime,
 			Location:    location,
-			ImageURL:    image_url,
+			ImageURL:    imageURL,
 			Tags:        tags,
-			Description: aria_description,
+			Description: ariaDescription,
 		})
 	})
 
