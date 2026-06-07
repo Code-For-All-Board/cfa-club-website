@@ -1,5 +1,5 @@
-import { PageShell } from "../components/page-shell";
+import { EventsPage } from "../events/EventsPage";
 
 export default function Events() {
-  return <PageShell title="Events" />;
+  return <EventsPage />;
 }
