@@ -11,13 +11,38 @@ import (
 	"time"
 )
 
-const (
-	eventCacheInterval = 10 * time.Minute
-	upcomingCachePath  = "cache/upcoming_events.json"
-	pastCachePath      = "cache/past_events.json"
+const eventCacheInterval = 10 * time.Minute
+
+var (
+	eventCacheMu      sync.RWMutex
+	upcomingCachePath string
+	pastCachePath     string
 )
 
-var eventCacheMu sync.RWMutex
+func init() {
+	root := findProjectRoot()
+	upcomingCachePath = filepath.Join(root, "cache", "upcoming_events.json")
+	pastCachePath = filepath.Join(root, "cache", "past_events.json")
+}
+
+// findProjectRoot walks up from cwd until it finds go.mod, anchoring cache to
+// the backend/ root regardless of which directory the binary is run from.
+func findProjectRoot() string {
+	dir, err := os.Getwd()
+	if err != nil {
+		return "."
+	}
+	for {
+		if _, err := os.Stat(filepath.Join(dir, "go.mod")); err == nil {
+			return dir
+		}
+		parent := filepath.Dir(dir)
+		if parent == dir {
+			return "."
+		}
+		dir = parent
+	}
+}
 
 func cachePath(eventType uint32) string {
 	switch eventType {

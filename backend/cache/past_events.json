@@ -1,37 +1,5 @@
 [
   {
-    "id": "event_2250036",
-    "title": "Hack Knight",
-    "href": "/rsvp_boot?id=2250036\u0026rel=title",
-    "date": "Friday, 09 October 2026",
-    "time": "9:00 AM, EDT (GMT-4)",
-    "location": "Dining Hall, Kiely Hall, Rosenthal Library",
-    "image_url": "/upload/qc/2026/r2_image_upload_5163492_mlhbg_82eb44d0-6977-4108-8651-63856d6f1eec_830182017.png",
-    "tags": [
-      "Social",
-      "Competition",
-      "Coding",
-      "Hackathons"
-    ],
-    "description": "Event link. Hack Knight. Friday, 09 October 2026 At 9:00 AM, EDT (GMT-4). Dining Hall, Kiely Hall, Rosenthal Library. Opens the event page."
-  },
-  {
-    "id": "event_2250102",
-    "title": "Code For All Tech Internship Panel Discussion",
-    "href": "/rsvp_boot?id=2250102\u0026rel=title",
-    "date": "Monday, 28 September 2026",
-    "time": "12:00 PM, EDT (GMT-4)",
-    "location": "N/A",
-    "image_url": "/images/groups/professional-02.png",
-    "tags": [
-      "Career Workshop",
-      "Career",
-      "Internships",
-      "Computer Science"
-    ],
-    "description": "Event link. Code For All Tech Internship Panel Discussion. Monday, 28 September 2026 At 12:00 PM, EDT (GMT-4). Private Location ( sign in to display ) . Opens the event page."
-  },
-  {
     "id": "event_2249550",
     "title": "Demystifying DevOps",
     "href": "/rsvp_boot?id=2249550\u0026rel=title",
@@ -119,7 +87,7 @@
     "date": "Thursday, 29 January 2026",
     "time": "4:00 PM, EST (GMT-5)",
     "location": "Rosenthal 230 ( preferred ) , or Dining Hall main area",
-    "image_url": "/upload/qc/2026/r2_image_upload_5170115_Untitled_design_23_2b1d2aea-e310-4030-b7ce-6b0b5fa70ab1_82115455.png",
+    "image_url": "/images/groups/professional-02.png",
     "tags": [
       "Career Workshop",
       "Student Association",
